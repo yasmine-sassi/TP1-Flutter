@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tp1/Screens/DetailsScreen/details_screen.dart';
+import '/Screens/LibraryScreen/library_screen.dart';
 import '/Screens/HomeScreen/home_screen.dart';
+import 'models/book.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +34,9 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const HomeScreen(),
+      home: DetailsScreen(
+        book: Book("Sample Book", 20, "assets/images/image1.png"),
+      ),
     );
   }
 }
