@@ -7,11 +7,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final books = [
-      Book("L'ombre du vent", 40, 'assets/images/image1.png'),
-      Book("La Prof  McFADDEN", 50, 'assets/images/image2.png'),
-      Book("Le prisonnier du ciel", 40, 'assets/images/image3.png'),
-      Book("La femme de ménage", 50, 'assets/images/image4.png'),
+    var books = [
+      HomeCell(Book("L'ombre du vent", 40, 'assets/images/image1.png')),
+      HomeCell(Book("La Prof  McFADDEN", 50, 'assets/images/image2.png')),
+      HomeCell(Book("Le prisonnier du ciel", 40, 'assets/images/image3.png')),
+      HomeCell(Book("La femme de ménage", 50, 'assets/images/image4.png')),
     ];
 
     return Scaffold(
@@ -31,9 +31,7 @@ class HomeScreen extends StatelessWidget {
         color: Colors.white,
         child: ListView.builder(
           itemCount: books.length,
-          itemBuilder: (context, index) {
-            return HomeCell(books[index]);
-          },
+          itemBuilder: (context, index) => books[index],
         ),
       ),
     );
