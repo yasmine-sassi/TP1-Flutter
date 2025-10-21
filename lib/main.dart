@@ -34,9 +34,8 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: DetailsScreen(
-        book: Book("Sample Book", 20, "assets/images/image1.png"),
-      ),
+      //home: DetailsScreen(book: Book("Sample Book", 20, "assets/images/image1.png"),),
+      home: const LibraryScreen(),
     );
   }
 }

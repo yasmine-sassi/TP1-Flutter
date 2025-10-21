@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/book.dart';
 import '../../widgets/library_cell.dart';
+import '../DetailsScreen/details_screen.dart'; // <-- import your details screen
 
 class LibraryScreen extends StatelessWidget {
   const LibraryScreen({super.key});
@@ -9,9 +10,9 @@ class LibraryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final books = [
       Book("L'ombre du vent", 40, 'assets/images/image1.png'),
-      Book("La Prof McFADDEN", 50, 'assets/images/image1.png'),
-      Book("Le prisonnier du ciel", 40, 'assets/images/image1.png'),
-      Book("La femme de ménage", 50, 'assets/images/image1.png'),
+      Book("La Prof McFADDEN", 50, 'assets/images/image2.png'),
+      Book("Le prisonnier du ciel", 40, 'assets/images/image3.png'),
+      Book("La femme de ménage", 50, 'assets/images/image4.png'),
     ];
 
     return Scaffold(
@@ -27,20 +28,29 @@ class LibraryScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Expanded(
-        child: GridView.builder(
-          padding: const EdgeInsets.all(10),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, // 2 colonnes
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.65, // ajuste hauteur/largeur de chaque carte
-          ),
-          itemCount: books.length,
-          itemBuilder: (context, index) {
-            return LibraryCell(books[index]);
-          },
+      body: GridView.builder(
+        padding: const EdgeInsets.all(10),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2, // 2 colonnes
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          childAspectRatio: 0.65, // ajuste hauteur/largeur de chaque carte
         ),
+        itemCount: books.length,
+        itemBuilder: (context, index) {
+          final book = books[index];
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(book: book),
+                ),
+              );
+            },
+            child: LibraryCell(book),
+          );
+        },
       ),
     );
   }

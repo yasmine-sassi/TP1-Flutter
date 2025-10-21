@@ -29,19 +29,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
         centerTitle: true,
       ),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(6),
         children: [
           // 1 Image
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
-            child: Image.asset(
-              widget.book.image,
-              width: 250,
-              //height: 300,
-              //fit: BoxFit.cover,
-            ),
+            child: Image.asset(widget.book.image, height: 500),
           ),
-          const SizedBox(height: 16),
 
           // 2 Description
           const Text(
@@ -52,7 +46,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
             textAlign: TextAlign.justify,
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
-          //const SizedBox(height: 16),
 
           // 3 Price
           Center(
