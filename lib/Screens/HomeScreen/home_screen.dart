@@ -9,9 +9,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final books = [
       Book("L'ombre du vent", 40, 'assets/images/image1.png'),
-      Book("La Prof  McFADDEN", 50, 'assets/images/image1.png'),
-      Book("Le prisonnier du ciel", 40, 'assets/images/image1.png'),
-      Book("La femme de ménage", 50, 'assets/images/image1.png'),
+      Book("La Prof  McFADDEN", 50, 'assets/images/image2.png'),
+      Book("Le prisonnier du ciel", 40, 'assets/images/image3.png'),
+      Book("La femme de ménage", 50, 'assets/images/image4.png'),
     ];
 
     return Scaffold(
