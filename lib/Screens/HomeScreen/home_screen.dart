@@ -7,8 +7,15 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Only one book
-    final book = Book("L'ombre du vent", 40, 'assets/images/image1.png');
+    // Multiple books
+    final book1 = Book("L'ombre du vent", 40, 'assets/images/image1.png');
+    final book2 = Book(
+      "Le livre des Baltimore",
+      30,
+      'assets/images/image2.png',
+    );
+    final book3 = Book("Les Misérables", 50, 'assets/images/image3.png');
+    final book4 = Book("la prof mcFADDEN", 35, 'assets/images/image4.png');
 
     return Scaffold(
       appBar: AppBar(
@@ -25,8 +32,13 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Container(
         color: Colors.white,
-        child: Center(
-          child: HomeCell(book), // Display the single book
+        child: Column(
+          children: [
+            HomeCell(book1),
+            HomeCell(book2),
+            HomeCell(book3),
+            HomeCell(book4),
+          ],
         ),
       ),
     );

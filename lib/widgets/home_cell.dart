@@ -9,7 +9,6 @@ class HomeCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       elevation: 2,
       child: Container(
@@ -26,12 +25,11 @@ class HomeCell extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(width: 15),
 
             // Nom + Prix (à droite)
             Expanded(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end, // aligner à droite
+                crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
@@ -45,7 +43,7 @@ class HomeCell extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    "${book.price}TND",
+                    "${book.price} TND",
                     textAlign: TextAlign.right,
                     style: const TextStyle(
                       color: Colors.black,
