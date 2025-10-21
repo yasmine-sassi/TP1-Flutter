@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tp1/Screens/DetailsScreen/details_screen.dart';
 import '/Screens/LibraryScreen/library_screen.dart';
-import '/Screens/HomeScreen/home_screen.dart';
-import 'models/book.dart';
 
 void main() {
   runApp(const MyApp());
