@@ -31,24 +31,23 @@ class LibraryScreen extends StatelessWidget {
       body: GridView.builder(
         padding: const EdgeInsets.all(10),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // 2 colonnes
+          crossAxisCount: 2,
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
-          childAspectRatio: 0.65, // ajuste hauteur/largeur de chaque carte
+          childAspectRatio: 0.65,
         ),
         itemCount: books.length,
         itemBuilder: (context, index) {
-          final book = books[index];
           return GestureDetector(
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailsScreen(book: book),
+                  builder: (context) => DetailsScreen(book: books[index]),
                 ),
               );
             },
-            child: LibraryCell(book),
+            child: LibraryCell(books[index]),
           );
         },
       ),

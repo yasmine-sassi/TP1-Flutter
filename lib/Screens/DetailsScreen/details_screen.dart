@@ -31,13 +31,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
       body: ListView(
         padding: const EdgeInsets.all(6),
         children: [
-          // 1 Image
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
             child: Image.asset(widget.book.image, height: 500),
           ),
 
-          // 2 Description
           const Text(
             "Lorem ipsum dolor sit amet consectetur adipiscing elit. "
             "Sed non risus. Suspendisse lectus tortor, dignissim sit amet, "
@@ -47,7 +45,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
 
-          // 3 Price
           Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -61,7 +58,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
           ),
 
-          // 4 Quantity display
           Center(
             child: Text(
               "Quantity: $quantity",
@@ -70,13 +66,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
           ),
           const SizedBox(height: 16),
 
-          // 5 Purchase button
           Center(
             child: ElevatedButton.icon(
               onPressed: () {
                 if (quantity > 0) {
                   setState(() {
-                    quantity--; // décrémenter à chaque achat
+                    quantity--;
                   });
                 }
               },

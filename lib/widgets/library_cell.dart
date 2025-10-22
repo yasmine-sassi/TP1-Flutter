@@ -13,9 +13,7 @@ class LibraryCell extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(8),
         child: Column(
-          //mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Image du livre avec coins arrondis
             ClipRRect(
               borderRadius: BorderRadius.circular(15),
               child: Image.asset(
@@ -36,7 +34,6 @@ class LibraryCell extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            //const SizedBox(height: 5),
           ],
         ),
       ),
