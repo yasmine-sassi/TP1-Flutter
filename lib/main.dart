@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/Screens/LibraryScreen/library_screen.dart';
+import '/Screens/SignupScreen/signup_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       //home: DetailsScreen(book: Book("Sample Book", 20, "assets/images/image1.png"),),
-      home: const LibraryScreen(),
+      home: SignUpScreen(),
     );
   }
 }

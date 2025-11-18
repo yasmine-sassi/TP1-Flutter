@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/book.dart';
 import '../../widgets/library_cell.dart';
-import '../DetailsScreen/details_screen.dart'; // <-- import your details screen
+import '../DetailsScreen/details_screen.dart';
 
 class LibraryScreen extends StatelessWidget {
   const LibraryScreen({super.key});
