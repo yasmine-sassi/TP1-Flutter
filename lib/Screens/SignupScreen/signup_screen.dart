@@ -35,7 +35,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: TextFormField(
                 decoration: CustomInputDecoration(
                   "UserName",
-                  "Enter your UserName",
+                  "Enter your User Name",
                   Icon(Icons.person),
                 ).customInputDecoration(),
                 onSaved: (v) => username = v!,
