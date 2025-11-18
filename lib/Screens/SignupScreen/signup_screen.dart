@@ -4,6 +4,8 @@ import 'package:tp1/Widgets/custom_input_decoration.dart';
 class SignUpScreen extends StatefulWidget {
   static const String routeName = "/signup";
 
+  const SignUpScreen({super.key});
+
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
 }
