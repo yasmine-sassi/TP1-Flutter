@@ -1,40 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:tp1/widgets/main_navigation.dart';
-import 'package:tp1/screens/responsive_layout.dart';
+import 'models/user.dart';
+import 'services/user_service.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Important pour SharedPreferences
+
+  final userService = UserService();
+
+  // 1. Créer un utilisateur
+  final newUser = User(
+    email: "jean.dupont@example.com",
+    fullName: "Jean Dupont",
+  );
+
+  // 2. Sauvegarder
+  await userService.saveCurrentUser(newUser);
+
+  // 3. Récupérer et afficher
+  final savedUser = await userService.getCurrentUser();
+  print("Utilisateur actuel : $savedUser");
+
+  // 4. Simuler une déconnexion
+  // await userService.clearCurrentUser();
+
+  // 5. Vérifier après déconnexion (décommente la ligne ci-dessus pour tester)
+  // final userAfterClear = await userService.getCurrentUser();
+  // print("Après déconnexion : $userAfterClear");
+
   runApp(const MyApp());
 }
-
-// class MyApp extends StatefulWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   State<MyApp> createState() => _MyAppState();
-// }
-
-// class _MyAppState extends State<MyApp> {
-//   bool _isLightTheme = true;
-
-//   void _toggleTheme() {
-//     setState(() {
-//       _isLightTheme = !_isLightTheme;
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       title: 'Store INSAT',
-//       theme: _isLightTheme ? ThemeData.light() : ThemeData.dark(),
-//       home: MainNavigation(
-//         isLightTheme: _isLightTheme,
-//         onThemeToggle: _toggleTheme,
-//       ),
-//     );
-//   }
-// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -42,10 +36,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Responsive Multi-Pane Demo',
-      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
-      home: const ResponsiveLayout(),
-      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: Text('Voir la console pour le test SharedPreferences'),
+        ),
+      ),
     );
   }
 }
