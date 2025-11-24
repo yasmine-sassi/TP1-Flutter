@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../models/book.dart';
-import '../../widgets/library_cell.dart';
-import '../DetailsScreen/details_screen.dart'; // <-- import your details screen
+import '../models/book.dart';
+import '../widgets/library_cell.dart';
+import 'details_screen.dart';
 
 class LibraryScreen extends StatelessWidget {
   const LibraryScreen({super.key});
@@ -9,32 +9,31 @@ class LibraryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final books = [
-      Book("L'ombre du vent", 40, 'assets/images/image1.png'),
-      Book("La Prof McFADDEN", 50, 'assets/images/image2.png'),
-      Book("Le prisonnier du ciel", 40, 'assets/images/image3.png'),
-      Book("La femme de ménage", 50, 'assets/images/image4.png'),
+      Book("Book 1", 100, 'assets/images/image1.png'),
+      Book("Book 2", 50, 'assets/images/image2.png'),
+      Book("Book 3", 50, 'assets/images/image3.png'),
+      Book("Book 4", 50, 'assets/images/image4.png'),
     ];
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF216BEB),
+        backgroundColor: const Color.fromARGB(255, 11, 106, 49),
         title: const Text(
           "Library",
           style: TextStyle(
             color: Colors.white,
-            fontSize: 26,
+            fontSize: 28,
             fontWeight: FontWeight.bold,
           ),
         ),
-        centerTitle: true,
       ),
       body: GridView.builder(
         padding: const EdgeInsets.all(10),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          crossAxisSpacing: 10,
           mainAxisSpacing: 10,
-          childAspectRatio: 0.65,
+          crossAxisSpacing: 10,
+          childAspectRatio: 3 / 4,
         ),
         itemCount: books.length,
         itemBuilder: (context, index) {

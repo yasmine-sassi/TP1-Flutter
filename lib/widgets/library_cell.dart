@@ -9,30 +9,28 @@ class LibraryCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: Container(
         padding: const EdgeInsets.all(8),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(15),
               child: Image.asset(
                 book.image,
-                width: 120,
-                height: 180,
+                width: 100,
+                height: 120,
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 8),
             // Nom du livre
             Text(
               book.name,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
             ),
           ],
         ),
