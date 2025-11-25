@@ -1,14 +1,26 @@
 class Book {
-  //Attributes
-  late String name, image;
-  late int price;
-  Book(this.name, this.price, this.image);
+  String name;
+  int price;
+  String image;
+  String? userEmail; // association optionnelle
 
-  Map<String, dynamic> toMap() {
-    return {'name': name, 'price': price, 'image': image};
+  Book(this.name, this.price, this.image, {this.userEmail});
+
+  Map<String, Object?> toMap() {
+    return {
+      'name': name,
+      'price': price,
+      'image': image,
+      'userEmail': userEmail,
+    };
   }
 
-  factory Book.fromMap(Map<String, dynamic> map) {
-    return Book(map['name'], map['price'], map['image']);
+  factory Book.fromMap(Map<String, Object?> map) {
+    return Book(
+      map['name'].toString(),
+      map['price'] as int,
+      map['image'].toString(),
+      userEmail: map['userEmail']?.toString(),
+    );
   }
 }

@@ -26,7 +26,8 @@ class DatabaseHelper {
         CREATE TABLE IF NOT EXISTS book(
           name TEXT,
           price INTEGER,
-          image TEXT
+          image TEXT,
+          userEmail TEXT
         )
         """);
       },

@@ -65,7 +65,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
           Center(
             child: ElevatedButton.icon(
               onPressed: () async {
-                await BookService().addToBasket(widget.book);
+                await BookService().addBook(widget.book);
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text("Livre ajouté au panier")),
                 );

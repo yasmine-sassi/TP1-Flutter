@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tp1/widgets/bottom_navBar.dart';
+import 'package:tp1/widgets/bottom_navbar.dart';
 import 'package:tp1/widgets/tab_bar.dart';
 
 class MainNavigation extends StatefulWidget {

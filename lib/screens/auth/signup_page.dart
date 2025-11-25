@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tp1/screens/library_screen.dart';
+// import 'package:tp1/screens/library_screen.dart';
 import '../../widgets/input_decoration.dart';
 
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  const SignUpPage({super.key});
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
