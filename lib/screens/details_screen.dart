@@ -6,8 +6,9 @@ int quantity = 10;
 
 class DetailsScreen extends StatefulWidget {
   final Book book;
+  final String userEmail;
 
-  const DetailsScreen({super.key, required this.book});
+  const DetailsScreen({super.key, required this.book, required this.userEmail});
 
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
@@ -65,7 +66,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
           Center(
             child: ElevatedButton.icon(
               onPressed: () async {
-                await BookService().addBook(widget.book);
+                await BookService().addBook(widget.book, widget.userEmail);
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text("Livre ajouté au panier")),
                 );

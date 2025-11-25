@@ -42,7 +42,10 @@ class LibraryScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailsScreen(book: books[index]),
+                  builder: (context) => DetailsScreen(
+                    book: books[index],
+                    userEmail: "test@test.com",
+                  ),
                 ),
               );
             },

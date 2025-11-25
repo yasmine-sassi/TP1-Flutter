@@ -1,47 +1,36 @@
-import 'package:tp1/models/book.dart';
-import 'package:tp1/services/db_helper.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../models/book.dart';
 
 class BookService {
-  final DatabaseHelper _dbHelper = DatabaseHelper.instance;
+  final CollectionReference _booksCollection = FirebaseFirestore.instance
+      .collection('books');
 
-  // Ajouter un livre
-  Future<void> addBook(Book book) async {
-    final db = await _dbHelper.database;
-    await db.insert('book', book.toMap());
+  Stream<List<Book>> streamBooks(String userEmail) {
+    return _booksCollection
+        .where('userEmail', isEqualTo: userEmail)
+        .snapshots()
+        .map(
+          (snapshot) => snapshot.docs.map((doc) {
+            final data = doc.data() as Map<String, dynamic>;
+            return Book(
+              data['name'] ?? '',
+              data['price']?.toDouble() ?? 0.0,
+              data['image'] ?? '',
+            );
+          }).toList(),
+        );
   }
 
-  // Lire tous les livres
-  Future<List<Book>> fetchAllBooks() async {
-    final db = await _dbHelper.database;
-    final result = await db.query('book');
-    return result.map((row) => Book.fromMap(row)).toList();
+  Future<void> addBook(Book book, String? userEmail) async {
+    await _booksCollection.add({
+      'name': book.name,
+      'price': book.price,
+      'image': book.image,
+      'userEmail': userEmail,
+    });
   }
 
-  // Lire les livres d'un utilisateur spécifique
-  Future<List<Book>> fetchBooksByUser(String userEmail) async {
-    final db = await _dbHelper.database;
-    final result = await db.query(
-      'book',
-      where: 'userEmail = ?',
-      whereArgs: [userEmail],
-    );
-    return result.map((row) => Book.fromMap(row)).toList();
-  }
-
-  // Mettre à jour un livre
-  Future<void> updateBook(Book book) async {
-    final db = await _dbHelper.database;
-    await db.update(
-      'book',
-      book.toMap(),
-      where: 'name = ?',
-      whereArgs: [book.name],
-    );
-  }
-
-  // Supprimer un livre
-  Future<void> deleteBook(String name) async {
-    final db = await _dbHelper.database;
-    await db.delete('book', where: 'name = ?', whereArgs: [name]);
+  Future<void> deleteBook(String docId) async {
+    await _booksCollection.doc(docId).delete();
   }
 }

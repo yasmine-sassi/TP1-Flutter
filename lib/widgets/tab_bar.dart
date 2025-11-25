@@ -16,7 +16,7 @@ class _MyTabBarState extends State<MyTabBar> with TickerProviderStateMixin {
   final List<Widget> pages = [
     const SignUpPage(),
     const LibraryScreen(),
-    const BasketScreen(),
+    BasketScreen(userEmail: "test@test.com"),
   ];
 
   @override
