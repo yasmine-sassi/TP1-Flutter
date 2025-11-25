@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tp1/models/book.dart';
 
 class HomeCell extends StatelessWidget {
-  final String imagePath;
-  final String title;
-  final String subtitle;
+  final Book book;
 
-  const HomeCell({
-    super.key,
-    required this.imagePath,
-    required this.title,
-    required this.subtitle,
-  });
+  const HomeCell({super.key, required this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +33,7 @@ class HomeCell extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: Image.asset(
-              imagePath,
+              book.image,
               width: 70,
               height: 70,
               fit: BoxFit.cover,
@@ -51,14 +45,13 @@ class HomeCell extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title,
+                book.name,
                 style: TextStyle(
-                  color: textColor, // <-- theme aware color
+                  color: textColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
               ),
-              Text(subtitle, style: const TextStyle(color: Colors.grey)),
             ],
           ),
         ],

@@ -49,7 +49,17 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Sign Up'), centerTitle: true),
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 11, 106, 49),
+        title: const Text(
+          "Sign up",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       body: Form(
         key: _formKey,
         child: ListView(
@@ -175,12 +185,12 @@ class _SignUpPageState extends State<SignUpPage> {
                           TextButton(
                             onPressed: () {
                               Navigator.of(context).pop();
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => LibraryScreen(),
-                                ),
-                              );
+                              // Navigator.pushReplacement(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //     builder: (context) => LibraryScreen(),
+                              //   ),
+                              // );
                             },
                             child: const Text('OK'),
                           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/book.dart';
+import '../services/book_service.dart';
 
 int quantity = 10;
 
@@ -63,16 +64,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
           const SizedBox(height: 16),
           Center(
             child: ElevatedButton.icon(
-              onPressed: () {
-                if (quantity > 0) {
-                  setState(() {
-                    quantity--;
-                  });
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Stock épuisé !")),
-                  );
-                }
+              onPressed: () async {
+                await BookService().addToBasket(widget.book);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("Livre ajouté au panier")),
+                );
               },
               icon: const Icon(Icons.shopping_bag),
               label: const Text(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tp1/screens/library_screen.dart';
 import 'package:tp1/screens/basket_screen.dart';
+import 'package:tp1/screens/auth/signup_page.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -13,7 +14,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    const LibraryScreen(),
+    const SignUpPage(),
     const LibraryScreen(),
     const BasketScreen(),
   ];

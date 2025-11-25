@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tp1/screens/auth/signup_page.dart';
 import 'package:tp1/screens/basket_screen.dart';
 import 'package:tp1/screens/library_screen.dart';
 
@@ -13,7 +14,7 @@ class _MyTabBarState extends State<MyTabBar> with TickerProviderStateMixin {
   late TabController tabController;
 
   final List<Widget> pages = [
-    const LibraryScreen(),
+    const SignUpPage(),
     const LibraryScreen(),
     const BasketScreen(),
   ];
